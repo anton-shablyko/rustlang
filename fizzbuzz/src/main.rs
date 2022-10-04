@@ -1,4 +1,4 @@
-use std::io;
+rse std::io;
 
 fn main() {
     //my first attempt at fizzbuzz
