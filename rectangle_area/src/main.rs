@@ -5,11 +5,23 @@ struct Rectangle {
     height: u32,
 }
 
+mod shapes;
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+
+    fn is_width(&self) -> bool {
+        self.width > 0
+    }
+}
+
 fn main() {
+    //BASIC
     let width1 = 30;
     let height1 = 50;
-
-    println!("Area of rectangle is {} pxs", area_basic(width1, height1));
+    println!("{}", shapes::rectangle_basic::area(width1, height1));
 
     // TUPLES
     let rect1 = (30, 50);
@@ -22,10 +34,15 @@ fn main() {
     };
     println!("{:#?}", rect);
     println!("Area of rectangle is {} pxs", area_struct(&rect));
-}
 
-fn area_basic(w: u32, h: u32) -> u32 {
-    w * h
+    // Method
+    let m_rect = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!("Area of rectangle is {} pxs", m_rect.area());
+    println!("{}", m_rect.is_width());
 }
 
 fn area_tuples(dimensions: (u32, u32)) -> u32 {
